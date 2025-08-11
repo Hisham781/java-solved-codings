@@ -1,0 +1,33 @@
+// your task is to complete this function
+
+/*class Node {
+    int data;
+    Node next;
+
+    Node(int x) {
+        data = x;
+        next = null;
+    }
+}*/
+
+class Solution {
+    // Function to count pairs in two linked lists whose sum is equal to x
+    public int countPairs(Node head1, Node head2, int x) {
+        // add your code here
+        HashSet<Integer> set=new HashSet<>();
+        Node current2=head2;
+        while(current2!=null){
+            set.add(current2.data);
+            current2=current2.next;
+        }
+        int count=0;
+        Node current1=head1;
+        while(current1!=null){
+            if(set.contains(x-current1.data)){
+                count++;
+            }
+            current1=current1.next;
+        }
+        return count;
+    }
+}
