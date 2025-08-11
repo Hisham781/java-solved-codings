@@ -1,0 +1,11 @@
+class Solution {
+    public int subarraySum(int[] arr) {
+        // code here
+        int totalsum=0;
+        int l=arr.length;
+        for(int i=0;i<l;i++){
+            totalsum+=(long)arr[i]*(i+1)*(l-i);
+        }
+        return totalsum;
+    }
+}
