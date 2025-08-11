@@ -1,42 +1,17 @@
-/*
-    class Node
-    {
-        int data;
-        Node next;
-        Node(int d) {data = d; next = null; }
-    }
-*/
 
 class Solution {
-    public static Node findUnion(Node head1, Node head2) {
-        // Add your code here.
-        Node temp=head1;
-        Node temp1=head2;
-        TreeSet<Integer> set=new TreeSet<>();
-        while(temp!=null){
-            set.add(temp.data);
-            temp=temp.next;
-        }
-        while(temp1!=null){
-            set.add(temp1.data);
-            temp1=temp1.next;
-        }
-        Node union=null;
-        Node tail=null;
-        for(int val:set){
-            Node newnode=new Node(val);
-            if(union==null){
-                union=newnode;
-                tail=union;
-                
-                
+    int[][] rotateMatrix(int k, int mat[][]) {
+        // code here
+        int m=mat.length;
+        int n=mat[0].length;
+        int temp[][] =new int[m][n];
+        k=k%n;
+        for(int i=0;i<m;i++){
+            for(int j=0;j<n;j++){
+                temp[i][j]=mat[i][(j+k)%n];
             }
-            else{
-                tail.next=newnode;
-                tail=newnode;
-            }
+            
         }
-        return union;
-        
+        return temp;
     }
 }
